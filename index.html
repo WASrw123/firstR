@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>配置文件格式转换器</title>
+    <link rel="stylesheet" href="format-converter.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>配置文件格式转换器</h1>
+            <p class="subtitle">Properties ↔ YAML 双向转换工具</p>
+        </header>
+
+        <main class="converter">
+            <div class="input-section">
+                <div class="format-header">
+                    <h2>输入格式</h2>
+                    <div class="format-type">
+                        <span id="inputFormatLabel">自动识别</span>
+                        <div class="format-indicator" id="inputFormatIndicator"></div>
+                    </div>
+                </div>
+                <textarea 
+                    id="inputText" 
+                    placeholder="请输入Properties或YAML格式的配置内容..."
+                    spellcheck="false"
+                ></textarea>
+                <div class="error-message" id="inputError"></div>
+            </div>
+
+            <div class="controls">
+                <button id="convertToYaml" class="convert-btn">
+                    转换为YAML →
+                </button>
+                <button id="convertToProps" class="convert-btn">
+                    转换为Properties →
+                </button>
+                <button id="clearAll" class="clear-btn">
+                    清空内容
+                </button>
+            </div>
+
+            <div class="output-section">
+                <div class="format-header">
+                    <h2>输出格式</h2>
+                    <div class="format-type">
+                        <span id="outputFormatLabel">YAML</span>
+                        <div class="format-indicator" id="outputFormatIndicator"></div>
+                    </div>
+                </div>
+                <textarea 
+                    id="outputText" 
+                    readonly 
+                    placeholder="转换后的内容将显示在这里..."
+                    spellcheck="false"
+                ></textarea>
+                <div class="action-buttons">
+                    <button id="copyOutput" class="action-btn">
+                        <span class="icon">📋</span> 复制
+                    </button>
+                    <button id="downloadOutput" class="action-btn">
+                        <span class="icon">💾</span> 下载
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="format-tips">
+                <h3>格式示例：</h3>
+                <div class="tips-content">
+                    <div class="tip">
+                        <h4>Properties格式</h4>
+                        <pre>
+server.port=8080
+spring.datasource.url=jdbc:mysql://localhost:3306/db
+spring.datasource.username=root</pre>
+                    </div>
+                    <div class="tip">
+                        <h4>YAML格式</h4>
+                        <pre>
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/db
+    username: root</pre>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="format-converter.js"></script>
+</body>
+</html> 

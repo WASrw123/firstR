@@ -1,41 +1,17 @@
-name: CI/CD Pipeline
+name: fisrt workflows
 
 on:
   push:
-    branches: [main]
+    branches:
+      main
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: 检出代码
-      uses: actions/checkout@v3
-
-    - name: 设置Node
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
-
-    - name: 安装依赖项
-      run: npm ci
-
-    - name: 运行测试环境
-      run: npm test
-
-  deploy:
-    needs: test  # 依赖 test 任务成功
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: 检出代码
-      uses: actions/checkout@v3
-
-    - name: 构建工程
-      run: npm run build
-
-    - name: 发布到GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist
+   job1:
+     runs-on: ubuntu-latest
+     steps:
+     - run: pwd
+     - run: ls
+   job2:
+     runs-on: windows-latest
+     steps:
+     -run: node --version
